@@ -62,6 +62,7 @@ header .logo span {
 
 .nav-links li:last-child {
     right: 0;
+    padding-right: 10vw;
 }
 
 .nav-links li a {
