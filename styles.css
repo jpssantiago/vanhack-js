@@ -87,6 +87,7 @@ header .logo span {
 @media (max-width: 830px) {
     header .logo {
         font-size: 1.5rem;
+        padding: 0 2vw;
     }
 
     .nav-links li a {
@@ -99,7 +100,7 @@ header .logo span {
         top: 0;
         right: 100vw;
 
-        height: 20vh;
+        height: 40vh;
         width: 40%;
 
         padding: 80px 0;
