@@ -5,3 +5,7 @@ const toggleMenu = () => {
     menu.classList.toggle("nav-active");
     menu.style.display = "flex";
 }
+
+const moveToEvents = () => {
+    window.location.href = "#events";
+}

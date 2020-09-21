@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, 
+                      width=device-width, initial-scale=1.0, 
+                      minimum-scale=1.0, maximum-scale=1.0, 
+                      user-scalable=no, target-densitydpi=device-dpi">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/6fce902f63.js" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
     <title>VanHack's Event Page</title>
 </head>
 <header>
+    <li class="toggle-menu"><i onclick="toggleMenu()" class="fas fa-bars fa-lg"></i></li>
     <h1 class="logo">VanHack<span>Events</span></h1>
     <nav>
-        <li class="toggle-menu"><i onclick="toggleMenu()" class="fas fa-bars fa-lg"></i></li>
         <ul class="nav-links">
             <li><a class="active-link" href="#">Events</a></li>
             <li><a href="#">Premium</a></li>
@@ -24,7 +28,7 @@
     <section class="upper-section">
         <h1>Take a look at our events!</h1>
         <p>Webinar, MeetUp, Leap, Recruiting Mission, VanHackathon, and much more!</p>
-        <button>See events!</button>
+        <button onclick="moveToEvents()">See events!</button>
 
         <!-- This svg to create a cool css divider was made by CMDW and can be found at https://codepen.io/cmdw/pen/vQqzyB -->
         <svg class="editorial"
@@ -57,7 +61,7 @@
     </section>
 
     <section class="lower-section">
-        <h1>Available events</h1>
+        <h1 id="events">Available events</h1>
         <div class="cards">
             <div class="card">
                 <div class="card-image">
