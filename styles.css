@@ -15,6 +15,11 @@ html, body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -149,16 +154,14 @@ header .logo span {
 
 .upper-section {
     position: absolute;
-    height: 40vh;
-
+    top: 5vh;
+    height: 90vh;
     width: 100vw;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    padding: 15vh 0;
 
     font-family: "Roboto", sans-serif;
 
@@ -267,4 +270,109 @@ header .logo span {
     100% {
       transform: translate(85px, 0%);
     }
+}
+
+.lower-section {
+    position: absolute;
+    height: 80vh;
+    width: 100vw;
+    top: 100vh;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Roboto", sans-serif;
+
+    background: white;
+}
+
+.lower-section h1 {
+    font-size: 32px;
+    font-family: "Montserrat", "Roboto", sans-serif;
+
+    padding: 40px 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 25vw);
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 180px 180px 70px;
+    grid-template-areas: "image" "text" "button";
+
+    font-family: "Roboto";
+
+    padding: 0 80px;
+}
+
+.card-image {
+    grid-area: image;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    box-shadow: 5px 5px 5px black;
+    border-left: 1px solid black;
+}
+
+.card-text {
+    grid-area: text;
+
+    color: black;
+    background: rgb(255, 255, 255);
+
+    padding: 10px 20px;
+
+    overflow-y: hidden;
+
+    text-align: center;
+
+    box-shadow: 5px 5px 5px black;
+    border-left: 1px solid black;
+}
+
+.card-text h2 {
+    margin-top: -5px;
+}
+
+.card-text p {
+    margin-top: -10px;
+}
+
+.card-button {
+    grid-area: button;
+}
+
+.card-button button {
+    padding: 20px;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    color: white;
+    background: dodgerblue;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 5px black;
+    border-left: 1px solid black;
 }
