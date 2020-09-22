@@ -233,7 +233,7 @@ header .logo span {
     font-size: 32px;
     font-family: "Montserrat", "Roboto", sans-serif;
 
-    padding: 40px 0;
+    padding: 90px 0;
 
     color: white;
 }
@@ -316,6 +316,15 @@ header .logo span {
 
 .card-button button:hover {
     background: rgb(60, 113, 167);
+}
+
+.premium-card {
+    display: grid;
+    grid-template-columns: 400px;
+    grid-template-rows: 230px 230px 60px;
+    grid-template-areas: "image" "info" "button";
+
+    margin-top: -50px;
 }
 
 @media (max-width: 830px) {
