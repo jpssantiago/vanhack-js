@@ -133,6 +133,10 @@ header .logo span {
     cursor: pointer;
 }
 
+.upper-section button:hover {
+    background: rgb(101, 171, 241);
+}
+
 .upper-section button:focus {
     outline: none;
     border: none;
@@ -210,9 +214,9 @@ header .logo span {
 
 .lower-section {
     position: absolute;
-    height: 70vh;
+    height: 150vh;
     width: 100vw;
-    top: 100vh;
+    top: 90vh;
     
 
     display: flex;
@@ -222,7 +226,7 @@ header .logo span {
 
     font-family: "Roboto", sans-serif;
 
-    background: white;
+    background: #97a5a7;
 }
 
 .lower-section h1 {
@@ -230,61 +234,63 @@ header .logo span {
     font-family: "Montserrat", "Roboto", sans-serif;
 
     padding: 40px 0;
+
+    color: white;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 25vw);
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: 50% 50%;
+    grid-gap: 50px;
 }
 
 .card {
     display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 180px 180px 70px;
-    grid-template-areas: "image" "text" "button";
+    grid-template-columns: 400px;
+    grid-template-rows: 180px 180px 60px;
+    grid-template-areas: "image" "info" "button";
 
-    font-family: "Roboto";
+    transition: ease-in-out .5s;
+}
 
-    padding: 0 80px;
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card-image {
     grid-area: image;
+
+    width: 100%;
+    height: 100%;
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
 
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-    box-shadow: 5px 5px 5px black;
-    border-left: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.card-text {
-    grid-area: text;
-
-    color: black;
-    background: rgb(255, 255, 255);
-
-    padding: 10px 20px;
-
-    overflow-y: hidden;
+.card-info {
+    grid-area: info;
 
     text-align: center;
 
-    box-shadow: 5px 5px 5px black;
-    border-left: 1px solid black;
+    color: black;
+    background: white;
 }
 
-.card-text h2 {
-    margin-top: -5px;
+.card-info span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-text p {
-    margin-top: -10px;
+.card-info span i {
+    padding: 0 10px;
+    margin-left: -10px;
 }
 
 .card-button {
@@ -292,25 +298,24 @@ header .logo span {
 }
 
 .card-button button {
-    padding: 20px;
-
     width: 100%;
-    height: 100%;
-
-    font-size: 16px;
-    font-weight: 500;
+    padding: 20px;
+    
+    font-size: 20px;
+    text-align: center;
 
     border: 0;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
     color: white;
     background: dodgerblue;
 
     cursor: pointer;
+}
 
-    box-shadow: 5px 5px 5px black;
-    border-left: 1px solid black;
+.card-button button:hover {
+    background: rgb(60, 113, 167);
 }
 
 @media (max-width: 830px) {

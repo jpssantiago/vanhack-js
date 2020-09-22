@@ -7,5 +7,9 @@ const toggleMenu = () => {
 }
 
 const moveToEvents = () => {
-    window.location.href = "#events";
+    //window.location.href = "#events";
+    let destination = document.querySelector("#events"); 
+    destination.scrollIntoView({ 
+        behavior: 'smooth' 
+    });
 }
