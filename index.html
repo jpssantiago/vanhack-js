@@ -14,7 +14,6 @@
     <title>VanHack's Event Page</title>
 </head>
 <header>
-    <li class="toggle-menu"><i onclick="toggleMenu()" class="fas fa-bars fa-lg"></i></li>
     <h1 class="logo">VanHack<span>Events</span></h1>
     <nav>
         <ul class="nav-links">
@@ -23,171 +22,43 @@
             <li><a href="#">About</a></li>
         </ul>
     </nav>
-    
 </header>
+
 <body>
     <section class="upper-section">
         <h1>Take a look at our events!</h1>
         <p>Webinar, MeetUp, Leap, Recruiting Mission, VanHackathon, and much more!</p>
         <button onclick="moveToEvents()">See events!</button>
-
-        <!-- This svg to create a cool css divider was made by CMDW and can be found at https://codepen.io/cmdw/pen/vQqzyB -->
-        <svg class="editorial"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28 "
-                preserveAspectRatio="none">
-            <defs>
-            <path id="gentle-wave"
-            d="M-160 44c30 0 
-                58-18 88-18s
-                58 18 88 18 
-                58-18 88-18 
-                58 18 88 18
-                v44h-352z" />
-            </defs>
-            <g class="parallax1">
-            <use xlink:href="#gentle-wave" x="50" y="3" fill="#f461c1"/>
-            </g>
-                <g class="parallax2">
-            <use xlink:href="#gentle-wave" x="50" y="0" fill="#4579e2"/>
-                </g>
-                <g class="parallax3">
-            <use xlink:href="#gentle-wave" x="50" y="9" fill="#3461c1"/>
-            </g>
-                <g class="parallax4">
-            <use xlink:href="#gentle-wave" x="50" y="6" fill="#97a5a7"/>  
-            </g>
-        </svg>
     </section>
 
-    <section class="lower-section">
-        <h1 id="events">Available events</h1>
-        <div class="cards">
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>Webinar</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Online</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>September 24, 2020</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-
-            <div class="premium-card card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>Premium-only Webinar</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Online</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>September 26, 2020</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-hand-peace"></i>
-                        <p>This event is only for premium members</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>MeetUp</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Vancouver</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>October 2, 2020</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>Leap</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Toronto</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>October 4, 2020</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>Recruting Mission</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>São Paulo</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>October 6, 2020</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134">
-                </div>
-                <div class="card-info">
-                    <h2>VanHackathon</h2>
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Ottawa</p>
-                    </span>
-                    <span>
-                        <i class="fas fa-calendar-check"></i>
-                        <p>October 8, 2020</p>
-                    </span>
-                </div>
-                <div class="card-button">
-                    <button>See more details...</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- This svg to create a cool css divider was made by CMDW and can be found at https://codepen.io/cmdw/pen/vQqzyB -->
+    <svg class="editorial"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28 "
+        preserveAspectRatio="none">
+    <defs>
+    <path id="gentle-wave"
+    d="M-160 44c30 0 
+        58-18 88-18s
+        58 18 88 18 
+        58-18 88-18 
+        58 18 88 18
+        v44h-352z" />
+    </defs>
+    <g class="parallax1">
+    <use xlink:href="#gentle-wave" x="50" y="3" fill="#f461c1"/>
+    </g>
+        <g class="parallax2">
+    <use xlink:href="#gentle-wave" x="50" y="0" fill="#4579e2"/>
+        </g>
+        <g class="parallax3">
+    <use xlink:href="#gentle-wave" x="50" y="9" fill="#3461c1"/>
+    </g>
+        <g class="parallax4">
+    <use xlink:href="#gentle-wave" x="50" y="6" fill="#97a5a7"/>  
+    </g>
+    </svg>
 </body>
+
 </html>
