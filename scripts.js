@@ -43,6 +43,37 @@ const events = [
     },
 ];
 
+const toggleMenu = () => {
+    const menu = document.querySelector(".nav-links");
+    const editorial = document.querySelector("body > .editorial");
+
+    menu.classList.toggle("nav-active");
+    menu.style.display = "flex";
+
+    if (editorial.style.display == "none") {
+        editorial.style.displa = "none";
+    } else {
+        editorial.style.display = "block";
+    }
+}
+
+const moveToEvents = () => {
+    //window.location.href = "#events";
+    let destination = document.querySelector("#events"); 
+    destination.scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
+
+const toggleModal = event => {
+    const modal = document.querySelector(".modal");
+     if (modal.style.display === "block") {
+        modal.style.display = "none";
+     } else {
+        modal.style.display = "block";
+     }
+}
+
 const createCard = event => {
     const cards = document.querySelector(".cards");
 
@@ -50,7 +81,6 @@ const createCard = event => {
     if (event.premium) {
         premium_span = `
             <span>
-                <i class="fas fa-hand-peace"></i>
                 <p>This event is only for premium members</p>
             </span>
         `;
@@ -74,38 +104,12 @@ const createCard = event => {
                 ${premium_span}
             </div>
             <div class="card-button">
-                <button>See more details...</button>
+                <button onclick="toggleModal()">See more details...</button>
             </div>
         </div>
     `;
 
     cards.innerHTML += card;
-}
-
-const toggleMenu = () => {
-    const menu = document.querySelector(".nav-links");
-    const editorial = document.querySelector("body > .editorial");
-
-    menu.classList.toggle("nav-active");
-    menu.style.display = "flex";
-
-    if (editorial.style.display == "none") {
-        editorial.style.displa = "none";
-    } else {
-        editorial.style.display = "block";
-    }
-}
-
-const moveToEvents = () => {
-    //window.location.href = "#events";
-    let destination = document.querySelector("#events"); 
-    destination.scrollIntoView({ 
-        behavior: 'smooth' 
-    });
-}
-
-const toggleModal = () => {
-    modal.style.display = "block";
 }
 
 window.onload = () => {

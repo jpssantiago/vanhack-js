@@ -396,10 +396,6 @@ header nav li a {
     grid-gap: 10px;
   }
 
-  .premium-card span:last-child i {
-    display: none;
-  }
-
   .premium-card {
     margin-bottom: 40px;
   }
