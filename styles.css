@@ -17,9 +17,11 @@ html, body {
 }
 
 header {
-  position: fixed;
+  position: relative;
   width: 99%;
   height: 100px;
+
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
@@ -275,6 +277,7 @@ header nav li a {
 .card-button button:hover {
   background: rgb(29, 74, 119);
 }
+
 
 @media (max-width: 1200px) {
   header {
