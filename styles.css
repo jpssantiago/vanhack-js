@@ -304,25 +304,108 @@ header nav li a {
 }
 
 .modal-content {
-  width: 80%;
+  width: 50%;
 
-  margin: 15% auto;
-  padding: 20px;
+  margin: 9% auto;
+  padding: 10px 50px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  font-family: "Montserrat", sans-serif;
+
+  border-radius: 20px;
+
   background: white;
+
+  animation: opacityin .5s alternate;
 }
 
-.modal-content span {
-  font-size: 32px;
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  align-self: flex-end;
+  width: 100%;
+}
+
+.modal-about {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 0;
+}
+
+.modal-about h2 {
+  font-size: 20px;
+}
+
+.modal-about p {
+  margin-top: -10px;
+}
+
+.modal-content div {
+  font-size: 32px;
+  
+  cursor: pointer;
+
+  transition: .5s;
+}
+
+.modal-content div:hover {
+  color: dodgerblue;
+
+  transform: scale(1.5);
+}
+
+.modal-apply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-apply h2 {
+  font-size: 20px;
+}
+
+.modal-apply span {
+  display: flex;
+  align-items: center;
+
+  margin-top: -20px;
+}
+
+.modal-apply span i {
+  padding: 0 10px;
+}
+
+.modal-apply button {
+  width: 200px;
+  padding: 20px;
+  margin-left: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  border: 0;
+  border-radius: 15px;
+
+  color: white;
+  background: dodgerblue;
 
   cursor: pointer;
+}
+
+.modal-apply button:hover {
+  background: rgb(29, 74, 119);
+}
+
+@keyframes opacityin {
+  from {opacity: 0}
+  to {opacity: 1}
 }
 
 @media (max-width: 1200px) {
