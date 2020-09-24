@@ -17,7 +17,7 @@ html, body {
 }
 
 header {
-  position: relative;
+  position: fixed;
   width: 99%;
   height: 100px;
 
