@@ -286,6 +286,10 @@ header nav li a {
   outline: none;
 }
 
+.card-applied button {
+  background: rgb(29, 74, 119);
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -400,6 +404,10 @@ header nav li a {
 }
 
 .modal-apply button:hover {
+  background: rgb(29, 74, 119);
+}
+
+.modal-applied button {
   background: rgb(29, 74, 119);
 }
 

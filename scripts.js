@@ -49,6 +49,8 @@ const events = [
     },
 ];
 
+const applied_events = [0, 3];
+
 const toggleMenu = () => {
     const menu = document.querySelector(".nav-links");
     const editorial = document.querySelector("body > .editorial");
@@ -96,8 +98,10 @@ const createCard = event => {
         `;
     } 
 
+    const applied = applied_events.includes(event.id);
+
     const card = `
-        <div class="card ${event.premium ? "card-premium" : ""}">
+        <div class="card ${event.premium ? "card-premium" : ""} ${applied ? "card-applied" : ""}">
             <div class="card-image">
                 <img src="${event.image}">
             </div>
@@ -114,7 +118,7 @@ const createCard = event => {
                 ${premium_span}
             </div>
             <div class="card-button">
-                <button onclick="toggleModal('${event.id}')">See more details...</button>
+                <button onclick="toggleModal('${event.id}')">${applied ? "Already applied." : "See more details..."}</button>
             </div>
         </div>
     `;
@@ -124,6 +128,8 @@ const createCard = event => {
 
 const createModal = event => {
     const modal = document.querySelector('.modal-content');
+
+    const applied = applied_events.includes(event.id);
 
     const content = `
         <span class="modal-top">
@@ -139,7 +145,7 @@ const createModal = event => {
             </p>
         </span>
 
-        <span class="modal-apply">
+        <span class="modal-apply ${applied ? "modal-applied" : ""}">
             <h2>More informations.</h2>
             <span>
                 <i class="fas fa-map-marker-alt"></i>
@@ -153,7 +159,7 @@ const createModal = event => {
                     <i class="fas fa-hand-spock"></i>
                     <p>${event.premium ? "You need to be a premium member to apply to this event." : "You can apply right now!"}</p>
             </span>
-            <button onclick="applyToEvent('${event.id}')">Apply now</button>
+            <button onclick="applyToEvent('${event.id}')">${applied ? "Already applied." : "Apply now"}</button>
         </span>
     `;
 
