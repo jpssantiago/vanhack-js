@@ -17,8 +17,8 @@ html, body {
 }
 
 header {
-  position: relative;
-  width: 99%;
+  
+  width: 90%;
   height: 100px;
 
   display: flex;
