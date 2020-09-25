@@ -18,7 +18,7 @@ html, body {
 
 header {
   position: fixed;
-  width: 99%;
+  width: 100%;
   height: 100px;
 
   z-index: 1000;
@@ -53,6 +53,16 @@ header nav li {
   padding: 0 20px;
 
   font-size: 1.2rem;
+}
+
+@media (max-width: 1440px) {
+  header nav li {
+    display: inline;
+
+    padding: 0 5px;
+
+    font-size: 1rem;
+  }
 }
 
 header nav li a {
@@ -411,6 +421,10 @@ header nav li a {
   background: rgb(29, 74, 119);
 }
 
+.modal-apply button:focus {
+  outline: none;
+}
+
 .popup {
   display: none;
   position: fixed;
@@ -429,10 +443,10 @@ header nav li a {
 }
 
 .popup-content {
-  width: 30%;
+  width: 300px;
   height: 200px;
 
-  margin: 15% auto;
+  margin: 18% auto;
 
   display: flex;
   flex-direction: column;
@@ -522,12 +536,224 @@ header nav li a {
   background: rgb(29, 74, 119);
 }
 
+.applied-popup {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+
+  left: 0;
+  top: 0;
+
+  overflow: auto;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.applied-popup-content {
+  width: 300px;
+  height: 200px;
+
+  margin: 18% auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Montserrat", sans-serif;
+
+  border-radius: 5px;
+
+  background: white;
+
+  animation: opacityin .5s alternate;
+}
+
+.applied-popup-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.applied-popup-info div {
+  align-self: flex-end;
+
+  font-size: 32px;
+
+  margin: 10px;
+
+  transition: .5s;
+
+  cursor: pointer;
+}
+
+.applied-popup-info div:hover {
+  color: dodgerblue;
+
+  transform: scale(1.5);
+}
+
+.applied-popup-info p {
+  padding: 0 20px;
+}
+
+.applied-popup-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.applied-popup-content button {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  color: white;
+
+  border: 0;
+
+  cursor: pointer;
+}
+
+.applied-popup-content button {
+  background: dodgerblue;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.applied-popup-content button:hover {
+  background: rgb(124, 173, 223);
+}
+
+.applied-popup-content button:focus {
+  outline: none;
+}
+
+.premiumonly-popup {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+
+  left: 0;
+  top: 0;
+
+  overflow: auto;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.premiumonly-popup-content {
+  width: 300px;
+  height: 300px;
+
+  margin: 18% auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Montserrat", sans-serif;
+
+  border-radius: 5px;
+
+  background: white;
+
+  animation: opacityin .5s alternate;
+}
+
+.premiumonly-popup-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.premiumonly-popup-info div {
+  align-self: flex-end;
+
+  font-size: 32px;
+
+  margin: 10px;
+
+  transition: .5s;
+
+  cursor: pointer;
+}
+
+.premiumonly-popup-info div:hover {
+  color: dodgerblue;
+
+  transform: scale(1.5);
+}
+
+.premiumonly-popup-info p {
+  padding: 0 20px;
+}
+
+.premiumonly-popup-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.premiumonly-popup-content button {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  color: white;
+
+  border: 0;
+
+  cursor: pointer;
+}
+
+.premiumonly-popup-content button {
+  background: rgb(243, 134, 134);
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.premiumonly-popup-content button:hover {
+  background: red;
+}
+
+.premiumonly-popup-content button:focus {
+  outline: none;
+}
+
 @keyframes opacityin {
   from {opacity: 0}
   to {opacity: 1}
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1320px) {
   header {
     width: 100%;
     height: 60px;

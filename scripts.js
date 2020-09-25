@@ -49,9 +49,22 @@ const events = [
     },
 ];
 
-const applied_events = [];
+const user = {
+    applied_events: [],
+    premium: false,
+}
 
-const hasApplied = eventId => applied_events.includes(eventId);
+const hasApplied = eventId => user.applied_events.includes(parseInt(eventId));
+
+const getEventById = eventId => events.filter(event => event.id === parseInt(eventId))[0];
+
+const moveToEvents = () => {
+    //window.location.href = "#events";
+    let destination = document.querySelector("#events"); 
+    destination.scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
 
 const toggleMenu = () => {
     const menu = document.querySelector(".nav-links");
@@ -65,14 +78,6 @@ const toggleMenu = () => {
     } else {
         editorial.style.display = "block";
     }
-}
-
-const moveToEvents = () => {
-    //window.location.href = "#events";
-    let destination = document.querySelector("#events"); 
-    destination.scrollIntoView({ 
-        behavior: 'smooth' 
-    });
 }
 
 const toggleModal = eventId => {
@@ -91,12 +96,34 @@ const toggleModal = eventId => {
 const applyToEvent = eventId => {
     const card = document.querySelector('.cards').children[eventId];
     
-    applied_events.push(parseInt(eventId));
+    user.applied_events.push(parseInt(eventId));
     card.classList.add("card-applied");
     card.children[2].children[0].innerHTML = "Already applied";
 
     closeConfirmationModal();
     toggleModal(eventId);
+
+    toggleAppliedPopup();
+}
+
+const toggleAppliedPopup = () => {
+    const popup = document.querySelector(".applied-popup");
+
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
+}
+
+const togglePremiumPopup = () => {
+    const popup = document.querySelector(".premiumonly-popup");
+
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
 }
 
 const closeConfirmationModal = () => {
@@ -106,8 +133,13 @@ const closeConfirmationModal = () => {
 }
 
 const openConfirmationModal = eventId => {
-    console.log(hasApplied(eventId));
     if (hasApplied(eventId)) return;
+
+    const event = getEventById(eventId);
+    if (event.premium && !user.premium) {
+        togglePremiumPopup();
+        return;
+    }
 
     const modal = document.querySelector(".popup");
     const popup = `
@@ -141,7 +173,7 @@ const createCard = event => {
         `;
     } 
 
-    const applied = applied_events.includes(event.id);
+    const applied = hasApplied(event.id);
 
     const card = `
         <div class="card ${event.premium ? "card-premium" : ""} ${applied ? "card-applied" : ""}">

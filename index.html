@@ -72,7 +72,32 @@
 
     <div class="popup"></div>
 
-    <div class="applied-popup"></div>
+    <div class="applied-popup">
+        <div class="applied-popup-content">
+            <span class="applied-popup-info">
+                <div onclick="toggleAppliedPopup()">&times;</div>
+                <p>Congratulations, you have applied to the event!</p>
+            </span>
+            <span class="applied-popup-buttons">
+                <button onclick="toggleAppliedPopup()">Close.</button>
+            </span>
+        </div>
+    </div>
+
+    <div class="premiumonly-popup">
+        <div class="premiumonly-popup-content">
+            <span class="premiumonly-popup-info">
+                <div onclick="togglePremiumPopup()">&times;</div>
+                <p>This event is reserved only for premium members. 
+                    <br><br>With VanHack Premium you will acquire career skills that will make you stand out from the herd! 
+                    Live interview practice, profile review, exclusive webinars & more.
+                </p>
+            </span>
+            <span class="premiumonly-popup-buttons">
+                <button onclick="togglePremiumPopup()">Close.</button>
+            </span>
+        </div>
+    </div>
 </body>
 
 </html>
