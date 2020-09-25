@@ -854,7 +854,7 @@ header nav li a {
 
   .cards {
     display: grid;
-    grid-template-columns: 250px 250px 250px;
+    grid-template-columns: 300px 300px 300px;
     grid-template-rows: 50% 50%;
     grid-template-areas: "image" "info" "button";
     grid-gap: 10px;
