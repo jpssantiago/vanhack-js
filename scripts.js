@@ -49,7 +49,9 @@ const events = [
     },
 ];
 
-const applied_events = [0, 3];
+const applied_events = [];
+
+const hasApplied = eventId => applied_events.includes(eventId);
 
 const toggleMenu = () => {
     const menu = document.querySelector(".nav-links");
@@ -80,10 +82,51 @@ const toggleModal = eventId => {
         modal.style.display = "none";
     } else {
         modal.style.display = "block";
-    }
 
-    const event = events.filter(event => event.id == eventId)[0];
-    createModal(event);
+        const event = events.filter(event => event.id == eventId)[0];
+        createModal(event);
+    }
+}
+
+const applyToEvent = eventId => {
+    const card = document.querySelector('.cards').children[eventId];
+    
+    applied_events.push(parseInt(eventId));
+    card.classList.add("card-applied");
+    card.children[2].children[0].innerHTML = "Already applied";
+
+    closeConfirmationModal();
+    toggleModal(eventId);
+}
+
+const closeConfirmationModal = () => {
+    const modal = document.querySelector(".popup");
+    modal.style.display = "none";
+    modal.innerHTML = "";
+}
+
+const openConfirmationModal = eventId => {
+    console.log(hasApplied(eventId));
+    if (hasApplied(eventId)) return;
+
+    const modal = document.querySelector(".popup");
+    const popup = `
+        <div class="popup-content">
+            <span class="popup-info">
+                <div onclick="closeConfirmationModal()">&times;</div>
+                <p>Are you sure you want to apply to this event? Once applied you can't cancel it.</p>
+            </span>
+            <span class="popup-buttons">
+                <button onclick="closeConfirmationModal()">No.</button>
+                <button onclick="applyToEvent('${eventId}')">Yes, apply.</button>
+            </span>
+        </div>
+    `;
+
+    //toggleModal(eventId);
+    
+    modal.innerHTML = popup;
+    modal.style.display = "flex";
 }
 
 const createCard = event => {
@@ -129,7 +172,7 @@ const createCard = event => {
 const createModal = event => {
     const modal = document.querySelector('.modal-content');
 
-    const applied = applied_events.includes(event.id);
+    const applied = hasApplied(event.id);
 
     const content = `
         <span class="modal-top">
@@ -159,7 +202,7 @@ const createModal = event => {
                     <i class="fas fa-hand-spock"></i>
                     <p>${event.premium ? "You need to be a premium member to apply to this event." : "You can apply right now!"}</p>
             </span>
-            <button onclick="applyToEvent('${event.id}')">${applied ? "Already applied." : "Apply now"}</button>
+            <button onclick="openConfirmationModal('${event.id}')">${applied ? "Already applied." : "Apply now"}</button>
         </span>
     `;
 
