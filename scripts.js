@@ -5,7 +5,8 @@ const events = [
         location: 'Online',
         date: 'September 24, 2020',
         premium: false,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: false,
+        image: "https://blog.vanhack.com/wp-content/uploads/2020/03/0-1024x536.jpg"
     },
     {
         id: 1,
@@ -13,23 +14,26 @@ const events = [
         location: 'Online',
         date: 'September 26, 2020',
         premium: true,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: false,
+        image: "https://blog.vanhack.com/wp-content/uploads/2020/04/HiringGuideCover.png",
     },
     {
         id: 2,
         name: 'MeetUp',
-        location: 'Vancouver',
+        location: 'Recife',
         date: 'October 2, 2020',
         premium: false,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: false,
+        image: "https://blog.vanhack.com/wp-content/uploads/2018/09/Meetup-1024x576.png",
     },
     {
         id: 3,
         name: 'Leap',
-        location: 'Toronto',
+        location: 'Vancouver',
         date: 'October 4, 2020',
         premium: false,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: true,
+        image: "https://blog.vanhack.com/wp-content/uploads/2019/09/Leap-Vancouver-768x384.jpg",
     },
     {
         id: 4,
@@ -37,7 +41,8 @@ const events = [
         location: 'São Paulo',
         date: 'October 6, 2020',
         premium: false,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: true,
+        image: "https://blog.vanhack.com/wp-content/uploads/2018/12/Facebook-size-image-51-1024x538.png",
     },
     {
         id: 5,
@@ -45,7 +50,8 @@ const events = [
         location: 'Ottawa',
         date: 'October 8, 2020',
         premium: false,
-        image: "https://images.adsttc.com/media/images/5bf2/16a3/08a5/e515/4e00/018b/medium_jpg/feature_image.jpg?1542592134",
+        highlighted: true,
+        image: "https://blog.vanhack.com/wp-content/uploads/2016/03/vsco-photo-1-1024x683.jpg",
     },
 ];
 
@@ -57,6 +63,13 @@ const user = {
 const hasApplied = eventId => user.applied_events.includes(parseInt(eventId));
 
 const getEventById = eventId => events.filter(event => event.id === parseInt(eventId))[0];
+
+const redirectToPremium = () => window.open("https://vanhack.com/premium/", "_blank").focus();
+
+const shareEventOnLinkedin = event => {
+    const url = "https://vanhack.com/platform/#/events";
+    window.open('http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(url), '', 'left=0,top=0,width=650,height=420,personalbar=0,toolbar=0,scrollbars=0,resizable=0');
+}
 
 const moveToEvents = () => {
     //window.location.href = "#events";
@@ -164,6 +177,13 @@ const openConfirmationModal = eventId => {
 const createCard = event => {
     const cards = document.querySelector(".cards");
 
+    let highlighted = "";
+    if (event.highlighted) {
+        highlighted = `
+            <div class="highlighted-event">Highlighted Event!</div>
+        `;
+    }
+
     let premium_span = "";
     if (event.premium) {
         premium_span = `
@@ -171,13 +191,14 @@ const createCard = event => {
                 <p>This event is only for premium members</p>
             </span>
         `;
-    } 
+    }
 
     const applied = hasApplied(event.id);
 
     const card = `
         <div class="card ${event.premium ? "card-premium" : ""} ${applied ? "card-applied" : ""}">
             <div class="card-image">
+                ${highlighted}
                 <img src="${event.image}">
             </div>
             <div class="card-info">
@@ -208,7 +229,10 @@ const createModal = event => {
 
     const content = `
         <span class="modal-top">
-            <h1>${event.name}</h1>
+            <span>
+                <h1>${event.name}</h1>
+                <i class="fab fa-linkedin" onclick="shareEventOnLinkedin('${event}')" title="Share on LinkedIn"></i>
+            </span>
             <div class="modal-close" onclick="toggleModal()">&times;</div>
         </span>
 
